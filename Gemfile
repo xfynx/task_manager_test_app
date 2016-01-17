@@ -20,7 +20,9 @@ gem 'bcrypt'
 gem 'devise'
 gem 'cancancan'
 gem 'rolify'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 
+gem 'pg', '0.15.1'
 gem 'unicorn'
 
 # Use Capistrano for deployment
@@ -29,7 +31,6 @@ gem 'unicorn'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  gem 'sqlite3'
   gem 'rspec-rails'
 end
 
@@ -42,7 +43,6 @@ group :development do
 end
 
 group :production do
-  gem 'pg', '0.15.1'
   gem 'rails_12factor', '0.0.2'
   gem 'newrelic_rpm'
 end
