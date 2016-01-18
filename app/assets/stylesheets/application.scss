@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap-sprockets";
 @import "bootstrap";
 
 
@@ -41,4 +42,12 @@ h2 {
 p {
     font-size: 1.1em;
     line-height: 1.7em;
+}
+
+.container.custom-container{
+  margin-top: 3%;
+}
+
+.container footer{
+  margin-top: 10%;
 }

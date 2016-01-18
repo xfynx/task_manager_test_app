@@ -20,6 +20,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 ru:
+  layout:
+    main: Главная
+    tasks: Список задач
+    sign_out: Выйти
   helpers:
     select:
       prompt: 'Выберите: '

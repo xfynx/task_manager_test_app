@@ -19,10 +19,10 @@
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
-  <div class="field">
-    <%= f.label :state %><br>
-    <%= f.select(:state, state_select_values) %>
-  </div>
+  <!--<div class="field">
+    <%#= f.label :state %><br>
+    <%#= f.select(:state, state_select_values) %>
+  </div>-->
   <div class="field">
     <%= f.label :user %><br>
     <%= f.select(:user_id, User.with_role('user').pluck(:email, :id)) %>

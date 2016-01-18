@@ -1,3 +1,7 @@
+<%
+  provide(:title, 'Новая задача')
+  provide(:active, 'tasks')
+%>
 <h1><%= t('activerecord.models.task.new_task') %></h1>
 
 <%= render 'form' %>
