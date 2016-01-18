@@ -6,13 +6,11 @@ RSpec.describe "tasks/index", type: :view do
         Task.create!(
             name: "ExampleName",
             description: "MyText",
-            state: "new",
             user: User.first
         ),
         Task.create!(
             name: "ExampleName",
             description: "MyText",
-            state: "new",
             user: User.first
         )
     ])

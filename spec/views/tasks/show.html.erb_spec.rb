@@ -5,7 +5,6 @@ RSpec.describe "tasks/show", type: :view do
     @task = assign(:task, Task.create!(
         name: "ExampleName",
         description: "MyText",
-        state: "new",
         user: User.first
     ))
   end

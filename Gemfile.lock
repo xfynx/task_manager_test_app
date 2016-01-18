@@ -8,6 +8,12 @@ GIT
       json (>= 1.7)
       mime-types (>= 1.16)
 
+GIT
+  remote: https://github.com/aasm/aasm.git
+  revision: bdf7e4c97b3d5e1d0d6a33903ac52f3a03459a0e
+  specs:
+    aasm (4.7.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -204,6 +210,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aasm!
   bcrypt
   bootstrap-sass
   byebug

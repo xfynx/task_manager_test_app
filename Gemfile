@@ -25,6 +25,7 @@ gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 
 gem 'pg', '0.15.1'
 gem 'unicorn'
+gem 'aasm', git: 'https://github.com/aasm/aasm.git'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

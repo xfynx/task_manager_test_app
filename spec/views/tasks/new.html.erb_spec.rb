@@ -5,7 +5,6 @@ RSpec.describe "tasks/new", type: :view do
     assign(:task, Task.new(
         name: "MyString",
         description: "MyText",
-        state: "new",
         user: User.first
     ))
   end
@@ -16,7 +15,6 @@ RSpec.describe "tasks/new", type: :view do
     assert_select "form[action=?][method=?]", tasks_path, "post" do
       assert_select "input#task_name[name=?]", "task[name]"
       assert_select "textarea#task_description[name=?]", "task[description]"
-      assert_select "select#task_state[name=?]", "task[state]"
       assert_select "select#task_user_id[name=?]", "task[user_id]"
     end
   end

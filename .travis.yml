@@ -10,4 +10,4 @@ services:
 before_script:
   - psql -c "CREATE USER developer WITH PASSWORD '123';" -U postgres
   - psql -c 'create database tmta_test;' -U postgres
-  - psql -c 'grants all privileges on database tmta_test to developer;' -U postgres
+  - psql -c 'grant all privileges on database tmta_test to developer;' -U postgres
