@@ -18,6 +18,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt'
 
 gem 'devise'
+gem 'devise-i18n'
 gem 'cancancan'
 gem 'rolify'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'

@@ -1,32 +1,32 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong><%= t('helpers.label.task.name') %>:</strong>
   <%= @task.name %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong><%= t('helpers.label.task.description') %>:</strong>
   <%= @task.description %>
 </p>
 
 <p>
-  <strong>State:</strong>
+  <strong><%= t('helpers.label.task.state') %>:</strong>
   <%= @task.state %>
 </p>
 
 <p>
-  <strong>User:</strong>
+  <strong><%= t('helpers.label.task.user') %>:</strong>
   <%= @task.user_id %>
 </p>
 
 <p>
-  <strong>Attachments:</strong>
+  <strong><%= t('helpers.label.task.attachment') %></strong>
   <% @task.attachments.each do |attach| %>
       <br>
       <%= attach.file.filename %>
   <% end %>
 </p>
 
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+<%= link_to t('helpers.edit'), edit_task_path(@task) %> |
+<%= link_to t('helpers.back'), tasks_path %>

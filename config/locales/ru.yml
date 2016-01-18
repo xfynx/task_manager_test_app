@@ -20,4 +20,48 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 ru:
-  hello: "Hello world"
+  helpers:
+    select:
+      prompt: 'Выберите: '
+    submit:
+      create: Создать %{model}
+      submit: Сохранить %{model}
+      update: Сохранить %{model}
+    show: Перейти
+    edit: Редактировать
+    back: Назад
+    destroy: Удалить
+    root: Главная
+    root_user: 'Главная: %{email}'
+    label:
+      task:
+        name: Название
+        description: Описание
+        state: Состояние
+        user: Пользователь
+        attachment: 'Файлы:'
+      user:
+        full_name: ФИО
+        email: Адрес почты
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'Возникли ошибки: %{errors}'
+        restrict_dependent_destroy:
+          has_one: 'Невозможно удалить запись, так как существует зависимость: %{record}'
+          has_many: 'Невозможно удалить запись, так как существуют зависимости: %{record}'
+    models:
+      user:
+        full_name: ФИО
+        email: Адрес почты
+      task:
+        new_task: Новая задача
+        edit_task: Редактировать задачу
+        index_task: Список задач
+        one: Задача
+        other: Задачи
+        name: Название
+        description: Описание
+        state: Состояние
+        user: Пользователь
+        attachment: Прикреплённый файл
