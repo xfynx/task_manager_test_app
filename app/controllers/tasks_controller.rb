@@ -49,6 +49,10 @@ class TasksController < ApplicationController
     end
   end
 
+  def download_file
+    send_file("#{Rails.root}/public/uploads/task/attachments/#{params[:id]}/#{params[:filename]}.#{params[:format]}")
+  end
+
   private
   def set_task
     @task = Task.find(params[:id])

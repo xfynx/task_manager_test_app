@@ -12,19 +12,19 @@
 
 <p>
   <strong><%= t('helpers.label.task.state') %>:</strong>
-  <%= @task.state %>
+  <%= t("activerecord.models.task.status.#{@task.state}") %>
 </p>
 
 <p>
   <strong><%= t('helpers.label.task.user') %>:</strong>
-  <%= @task.user_id %>
+  <%= @task.user.email %>
 </p>
 
 <p>
   <strong><%= t('helpers.label.task.attachment') %></strong>
   <% @task.attachments.each do |attach| %>
       <br>
-      <%= attach.file.filename %>
+      <%= download_file_link @task.id, attach.file.filename %>
   <% end %>
 </p>
 

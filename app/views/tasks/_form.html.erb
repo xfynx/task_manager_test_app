@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :state %><br>
-    <%= f.select(:state, %w(new processing done)) %>
+    <%= f.select(:state, state_select_values) %>
   </div>
   <div class="field">
     <%= f.label :user %><br>

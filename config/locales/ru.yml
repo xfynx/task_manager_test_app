@@ -45,6 +45,12 @@ ru:
         email: Адрес почты
   activerecord:
     errors:
+      models:
+        task:
+          attributes:
+            name:
+              too_short: Слишком короткое название
+              blank: Необходимо ввести название
       messages:
         record_invalid: 'Возникли ошибки: %{errors}'
         restrict_dependent_destroy:
@@ -65,3 +71,7 @@ ru:
         state: Состояние
         user: Пользователь
         attachment: Прикреплённый файл
+        status:
+          new: Новая
+          started: В работе
+          finished: Завершена

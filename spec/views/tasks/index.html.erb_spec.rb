@@ -3,26 +3,26 @@ require 'rails_helper'
 RSpec.describe "tasks/index", type: :view do
   before(:each) do
     assign(:tasks, [
-      Task.create!(
-        :name => "Name",
-        :description => "MyText",
-        :state => "State",
-        :user_id => 1
-      ),
-      Task.create!(
-        :name => "Name",
-        :description => "MyText",
-        :state => "State",
-        :user_id => 1
-      )
+        Task.create!(
+            name: "ExampleName",
+            description: "MyText",
+            state: "new",
+            user: User.first
+        ),
+        Task.create!(
+            name: "ExampleName",
+            description: "MyText",
+            state: "new",
+            user: User.first
+        )
     ])
   end
 
   it "renders a list of tasks" do
     render
-    assert_select "tr>td", :text => "Name".to_s, :count => 2
-    assert_select "tr>td", :text => "MyText".to_s, :count => 2
-    assert_select "tr>td", :text => "State".to_s, :count => 2
-    assert_select "tr>td", :text => 1.to_s, :count => 2
+    assert_select "tr>td", text: "ExampleName".to_s, :count => 2
+    assert_select "tr>td", text: "MyText".to_s, :count => 2
+    assert_select "tr>td", text: I18n.t('activerecord.models.task.status.new'), count: 2
+    assert_select "tr>td", text: User.first.email, :count => 2
   end
 end

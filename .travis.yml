@@ -1,9 +1,13 @@
 language: ruby
 rvm:
  - "2.2.3"
-script: bundle exec rspec spec
+script:
+  - bundle exec rspec spec
+  - bundle exec rake db:schema:load
+  - bundle exec rake db:seed
 services:
   - postgresql
 before_script:
   - psql -c "CREATE USER developer WITH PASSWORD '123';" -U postgres
   - psql -c 'create database tmta_test;' -U postgres
+  - psql -c 'grants all privileges on database tmta_test to developer;' -U postgres
