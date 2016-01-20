@@ -1,27 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <h1><%= t('helpers.root') %></h1>
-
-<table>
-  <thead>
-  <!--<tr>-->
-    <!--<th><%= t('helpers.label.user.email') %></th>-->
-    <!--<th><%= t('helpers.label.user.full_name') %></th>-->
-    <!--<th colspan="3"></th>-->
-  <!--</tr>-->
-  </thead>
-
-  <tbody>
-  <% @users.each do |user| %>
-      <tr>
-        <td><%= user.email %></td>
-        <td><%= user.full_name %></td>
-      </tr>
-      <tr><td><hr></td></tr>
+<% @users.each do |user| %>
+    <%= user.email %><br>
+    <%#= user.full_name %>
+    <table class="table table-striped">
+      <tbody>
       <% user.tasks.each do |task| %>
-          <%= render partial: '/partials/task/task_row', locals: {task: task} %>
+          <%= render partial: '/partials/task/task_row', locals: {task: task, is_cabinet: true} %>
       <% end %>
-    <tr><td><br></td></tr>
-  <% end %>
-  </tbody>
-</table>
+      </tbody>
+    </table>
+<% end %>

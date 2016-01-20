@@ -2,7 +2,12 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tasks = Task.all
+    state_order = params[:state] if params[:state].present?
+    @tasks = if state_order.present?
+      Task.all.order(state: state_order) if state_order=='desc' || state_order=='asc'
+    else
+      Task.all
+    end
   end
 
   def show

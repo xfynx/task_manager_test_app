@@ -21,7 +21,7 @@
 
 <p>
   <strong><%= t('helpers.label.task.user') %>:</strong>
-  <%= @task.user.email %>
+  <%= @task.user.email if @task.user.present? %>
 </p>
 
 <p>

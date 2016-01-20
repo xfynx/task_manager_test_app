@@ -1,9 +1,12 @@
 <tr>
-  <td><%= task.name %></td>
+  <td><%= link_to "##{task.id} #{task.name}", task_path(task) %></td>
   <td><%= task.description %></td>
   <td><%= t("activerecord.models.task.status.#{task.state}") %></td>
-  <td><%= task.user.email %></td>
+  <% is_cabinet = nil if local_assigns[:is_cabinet].nil? %>
+  <% unless is_cabinet.present? %>
+      <td><%= task.user.email if task.user.present? %></td>
+  <% end %>
   <td><%= link_to t('helpers.show'), task %></td>
   <td><%= link_to t('helpers.edit'), edit_task_path(task) %></td>
-  <td><%= link_to t('helpers.destroy'), task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <!--<td><%= link_to t('helpers.destroy'), task, method: :delete, data: {confirm: 'Are you sure?'} %></td>-->
 </tr>

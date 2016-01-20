@@ -6,12 +6,12 @@
 
 <h1><%= t('activerecord.models.task.index_task') %></h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th><%= t('helpers.label.task.name') %></th>
       <th><%= t('helpers.label.task.description') %></th>
-      <th><%= t('helpers.label.task.state') %></th>
+      <th><%= link_to t('helpers.label.task.state'), state_sort_order_link %></th>
       <th><%= t('helpers.label.task.user') %></th>
       <th colspan="3"></th>
     </tr>
