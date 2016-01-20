@@ -1,0 +1,14 @@
+<% provide(:active, 'user') %>
+<p id="notice"><%= notice %></p>
+
+<h1><%= @user.full_name %></h1>
+
+<h2><%= @user.email %></h2>
+
+<table>
+  <tbody>
+  <% @user.tasks.each do |task| %>
+      <%= render partial: '/partials/task/task_row', locals: {task: task} %>
+  <% end %>
+  </tbody>
+</table>

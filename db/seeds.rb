@@ -19,3 +19,12 @@ user1.save!
 user2 = User.new({email: 'user2@example.com', full_name: 'User Two The Choosen One', password: '12345678'})
 user2.add_role('user')
 user2.save!
+
+task1 = Task.create({name: 'Task1'})
+task2 = Task.create({name: 'Task2', user: user1})
+task3 = Task.create({name: 'Task3', user: user2})
+
+task2.run
+task2.save!
+task3.finish
+task3.save!

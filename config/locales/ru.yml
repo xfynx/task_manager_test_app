@@ -46,7 +46,10 @@ ru:
         attachment: 'Файлы:'
       user:
         full_name: ФИО
+        password: Пароль
         email: Адрес почты
+        remember_me: Запомнить
+        log_in: Войти
   activerecord:
     errors:
       models:
@@ -63,6 +66,7 @@ ru:
     models:
       user:
         full_name: ФИО
+        password: Пароль
         email: Адрес почты
       task:
         new_task: Новая задача

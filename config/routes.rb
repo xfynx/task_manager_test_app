@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
+
   resources :tasks do
     member do
       get 'download_file/:filename', to: 'tasks#download_file'
@@ -9,6 +11,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   root 'cabinet#index'
+  get 'user/:id', to: 'cabinet#show'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

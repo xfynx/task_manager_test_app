@@ -30,11 +30,14 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <% if current_user.present? %>
+            <li <%= raw('class="active"') if yield(:active).to_s == 'user' %>>
+              <%= link_to current_user.full_name, "/user/#{current_user.id}" %>
+            </li>
             <li <%= raw('class="active"') if yield(:active).blank? %>>
-              <a href="/"><%= t('layout.main') %></a>
+              <%= link_to t('layout.main'), root_path %>
             </li>
             <li <%= raw('class="active"') if yield(:active).to_s == 'tasks' %>>
-              <a href="/tasks"><%= t('layout.tasks') %></a>
+              <%= link_to t('layout.tasks'), tasks_path %>
             </li>
             <li><%= link_to t('layout.sign_out'), '/users/sign_out', method: :delete %></a></li>
         <% end %>

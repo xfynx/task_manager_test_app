@@ -10,6 +10,5 @@ script:
 services:
   - postgresql
 before_script:
-  - psql -c "CREATE USER developer WITH PASSWORD '123';" -U postgres
+  - cp config/database.yml.travis config/database.yml
   - psql -c 'create database tmta_test;' -U postgres
-  - psql -c 'grant all privileges on database tmta_test to developer;' -U postgres

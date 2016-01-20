@@ -25,4 +25,10 @@ RSpec.describe Task, type: :model do
     expect(task1.state).to eq('finished')
     expect(task2.state).to eq('finished')
   end
+
+  it 'have scopes' do
+    expect(Task.unassigned.size).to be >=  1
+    expect(Task.finished.size).to be >=  1
+    expect(Task.in_work.size).to be >=  1
+  end
 end
