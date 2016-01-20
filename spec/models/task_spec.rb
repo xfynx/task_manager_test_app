@@ -14,8 +14,7 @@ RSpec.describe Task, type: :model do
   end
 
   it 'have correct state changing' do
-    task1 = Task.create(name: 'Task1')
-    task2 = Task.create(name: 'Task2')
+    task1, task2 = create_tasks
     expect(task1.state).to eq('new')
     task1.run
     expect(task1.state).to eq('started')
@@ -27,8 +26,19 @@ RSpec.describe Task, type: :model do
   end
 
   it 'have scopes' do
+    task1, task2 = create_tasks
     expect(Task.unassigned.size).to be >=  1
-    expect(Task.finished.size).to be >=  1
+    task1.run
+    task1.save!
     expect(Task.in_work.size).to be >=  1
+    task2.finish
+    task2.save!
+    expect(Task.finished.size).to be >=  1
+  end
+
+  def create_tasks
+    task1 = Task.create(name: 'Task1')
+    task2 = Task.create(name: 'Task2')
+    return task1, task2
   end
 end
