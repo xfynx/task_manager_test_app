@@ -18,9 +18,9 @@ RSpec.describe "tasks/index", type: :view do
 
   it "renders a list of tasks" do
     render
-    assert_select "tr>td", text: "ExampleName".to_s, :count => 2
-    assert_select "tr>td", text: "MyText".to_s, :count => 2
+    assert_select "tr>td>a", text: /#\d{1,10} ExampleName/, count: 2
+    assert_select "tr>td", text: "MyText".to_s, count: 2
     assert_select "tr>td", text: I18n.t('activerecord.models.task.status.new'), count: 2
-    assert_select "tr>td", text: User.first.email, :count => 2
+    assert_select "tr>td", text: User.first.email, count: 2
   end
 end

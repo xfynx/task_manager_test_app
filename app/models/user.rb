@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
   def to_param
     "#{id} #{full_name}".parameterize
   end
+
+  def can?(what, what_to_do)
+    Ability.new(self).can?(what, what_to_do)
+  end
 end

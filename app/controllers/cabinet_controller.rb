@@ -1,6 +1,7 @@
 class CabinetController < ApplicationController
   def index
     @users = User.with_role('user')
+    @unassigned_tasks = Task.unassigned
   end
 
   def show

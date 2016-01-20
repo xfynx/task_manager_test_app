@@ -5,7 +5,7 @@ RSpec.describe "tasks/show", type: :view do
     @task = assign(:task, Task.create!(
         name: "ExampleName",
         description: "MyText",
-        user: User.first
+        user: User.last
     ))
   end
 
@@ -14,6 +14,6 @@ RSpec.describe "tasks/show", type: :view do
     expect(rendered).to match(/ExampleName/)
     expect(rendered).to match(/MyText/)
     expect(rendered).to match(I18n.t('activerecord.models.task.status.new'))
-    expect(rendered).to match(User.first.email)
+    expect(rendered).to match(User.last.email)
   end
 end

@@ -4,10 +4,10 @@ class TasksController < ApplicationController
   def index
     state_order = params[:state] if params[:state].present?
     @tasks = if state_order.present?
-      Task.all.order(state: state_order) if state_order=='desc' || state_order=='asc'
-    else
-      Task.all
-    end
+               Task.all.order(state: state_order) if state_order=='desc' || state_order=='asc'
+             else
+               Task.all
+             end
   end
 
   def show
@@ -22,7 +22,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-
+    @task.user = current_user if @task.user.nil? && !current_user.can?(:manage, :all)
     respond_to do |format|
       if @task.save
         format.html { redirect_to @task, notice: 'Task was successfully created.' }

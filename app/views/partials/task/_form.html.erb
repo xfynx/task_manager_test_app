@@ -1,0 +1,60 @@
+<%= form_for @task, html: {multipart: true} do |f| %>
+    <% if @task.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+          <ul>
+            <% @task.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <% if (current_user.can?(:manage, :all) && parent_template == 'edit') || parent_template == 'new' %>
+        <div class="field">
+          <%= f.label :name %><br>
+          <%= f.text_field :name %>
+        </div>
+        <div class="field">
+          <%= f.label :description %><br>
+          <%= f.text_area :description %>
+        </div>
+        <% if current_user.can?(:manage, :all) %>
+            <div class="field">
+              <%= f.label :user %><br>
+              <%= f.select(:user_id, User.with_role('user').pluck(:email, :id)) %>
+            </div>
+        <% else %>
+            <%= f.hidden_field(:user_id, value: current_user.id) %>
+        <% end %>
+    <% else %>
+        <div class="field">
+          <%= f.label :name %><br>
+          <%= f.hidden_field(:name) %>
+          <%= @task.name %>
+        </div>
+        <div class="field">
+          <%= f.label :description %><br>
+          <%= f.hidden_field(:name) %>
+          <%= @task.description %>
+        </div>
+        <div class="field">
+          <%= f.label :user %><br>
+          <%= @task.user.email if @task.user.present? %>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :attachment %><br>
+      <% @task.attachments.each do |attach| %>
+          <br>
+          <%= attach.file.filename %>
+      <% end %>
+      <br>
+      <%= f.file_field :attachments, multiple: true %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>

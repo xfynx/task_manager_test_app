@@ -1,0 +1,8 @@
+<%= header %><br>
+<table class="table table-striped">
+  <tbody>
+  <% collection.each do |task| %>
+      <%= render partial: '/partials/task/task_row', locals: {task: task, is_cabinet: true} %>
+  <% end %>
+  </tbody>
+</table>

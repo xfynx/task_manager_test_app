@@ -4,6 +4,6 @@
 %>
 <h1><%= t('activerecord.models.task.new_task') %></h1>
 
-<%= render 'form' %>
+<%= render partial: 'partials/task/form', locals: {parent_template: 'new'} %>
 
-<%= link_to 'Back', tasks_path %>
+<%= link_to 'Back', tasks_path, class: 'btn btn-default', role: 'button' %>
