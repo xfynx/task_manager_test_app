@@ -1,28 +1,8 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a simple task manager app, created for rails features demonstration.
+It has 2 user roles: admin and user.
+Admin can assign tasks to any user, user can only take unassigned task to self.
+There is a 3 different task states: new, started and finished.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Admin can close the task in any way, user can close or start task only if task was assigned to him.

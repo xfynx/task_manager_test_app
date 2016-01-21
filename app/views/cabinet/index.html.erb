@@ -4,4 +4,4 @@
 <% @users.each do |user| %>
     <%= render partial: '/partials/cabinet/tasks_table', locals: {collection: user.tasks, header: user.email} %>
 <% end %>
-<%= render partial: '/partials/cabinet/tasks_table', locals: {collection: @unassigned_tasks, header: 'Задачи без исполнителя'} %>
+<%= render partial: '/partials/cabinet/tasks_table', locals: {collection: @unassigned_tasks, header: 'Задачи без исполнителя'} if @unassigned_tasks.size>0 %>

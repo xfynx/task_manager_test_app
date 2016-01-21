@@ -24,6 +24,14 @@ ru:
     main: Главная
     tasks: Список задач
     sign_out: Выйти
+  controllers:
+    task:
+      created: Задача создана.
+      updated: Задача обновлена.
+      destroyed: Задача уничтожена.
+      picked_up: "Задача назначена на %{email}."
+      started: Задача взята в работу
+      finished: Задача закрыта
   helpers:
     select:
       prompt: 'Выберите: '
@@ -33,6 +41,9 @@ ru:
       update: Сохранить %{model}
     show: Перейти
     edit: Редактировать
+    pick_up: Забрать себе
+    start: Перевести в работу
+    finish: Закончить
     back: Назад
     destroy: Удалить
     root: Главная

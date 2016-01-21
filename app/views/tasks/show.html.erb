@@ -32,5 +32,22 @@
   <% end %>
 </p>
 
-<%= link_to t('helpers.edit'), edit_task_path(@task), class: 'btn btn-default', role: 'button' %> |
+<% if !current_user.can?(:moderate, :all) && @task.user == current_user && @task.state == 'new' %>
+    <%= link_to t('helpers.start'), start_task_task_path(@task), class: 'btn btn-default', role: 'button', method: :post %>
+    <br><br>
+<% end %>
+
+<% if (current_user.can?(:moderate, :all) || @task.user == current_user) && @task.state != 'finished' %>
+    <%= link_to t('helpers.finish'), finish_task_task_path(@task), class: 'btn btn-default', role: 'button', method: :post %>
+    <br><br>
+<% end %>
+
+<% unless current_user.can?(:moderate, :all) || @task.user.present? || @task.state == 'finished' %>
+    <%= link_to t('helpers.pick_up'), pick_up_task_path(@task), class: 'btn btn-default', role: 'button', method: :post %>
+    <br><br>
+<% end %>
+
+<% if !current_user.can?(:moderate, :all) && @task.user.present? && @task.user == current_user %>
+  <%= link_to t('helpers.edit'), edit_task_path(@task), class: 'btn btn-default', role: 'button' %> |
+<% end %>
 <%= link_to t('helpers.back'), tasks_path, class: 'btn btn-default', role: 'button' %>

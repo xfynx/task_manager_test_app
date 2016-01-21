@@ -6,6 +6,9 @@
 
 <h1><%= t('activerecord.models.task.index_task') %></h1>
 
+<%= link_to t('activerecord.models.task.new_task'), new_task_path, class: 'btn btn-default', role: 'button' %>
+<br><br>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -23,7 +26,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to t('activerecord.models.task.new_task'), new_task_path, class: 'btn btn-default', role: 'button' %>

@@ -6,6 +6,11 @@
   <% unless is_cabinet.present? %>
       <td class="col-md-2"><%= task.user.email if task.user.present? %></td>
   <% end %>
-  <!--<td class="col-md-1"><%= link_to t('helpers.show'), task %></td>-->
-  <td class="col-md-1"><%= link_to t('helpers.edit'), edit_task_path(task), class: 'btn btn-default' %></td>
+  <td class="col-md-1">
+    <% if current_user.can?(:manage, :all) %>
+        <%= link_to(t('helpers.edit'), edit_task_path(task), class: 'btn btn-default') %>
+    <% elsif task.user.nil? && task.state != 'finished' %>
+        <%= link_to(t('helpers.pick_up'), pick_up_task_path(task), class: 'btn btn-default', role: 'button', method: :post) %>
+    <% end %>
+  </td>
 </tr>

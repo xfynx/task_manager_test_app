@@ -23,7 +23,7 @@
         <% if current_user.can?(:manage, :all) %>
             <div class="field">
               <%= f.label :user %><br>
-              <%= f.select(:user_id, User.with_role('user').pluck(:email, :id)) %>
+              <%= f.select(:user_id, User.with_role('user').pluck(:email, :id), include_blank: true) %>
             </div>
         <% else %>
             <%= f.hidden_field(:user_id, value: current_user.id) %>
