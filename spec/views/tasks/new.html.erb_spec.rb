@@ -9,6 +9,7 @@ RSpec.describe "tasks/new", type: :view do
     ))
   end
 
+  login_admin
   it "renders new task form" do
     render
 

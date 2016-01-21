@@ -9,11 +9,11 @@ RSpec.describe "tasks/show", type: :view do
     ))
   end
 
+  login_admin
   it "renders attributes in <p>" do
     render
     expect(rendered).to match(/ExampleName/)
     expect(rendered).to match(/MyText/)
     expect(rendered).to match(I18n.t('activerecord.models.task.status.new'))
-    expect(rendered).to match(User.last.email)
   end
 end

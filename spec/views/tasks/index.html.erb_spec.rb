@@ -16,6 +16,7 @@ RSpec.describe "tasks/index", type: :view do
     ])
   end
 
+  login_admin
   it "renders a list of tasks" do
     render
     assert_select "tr>td>a", text: /#\d{1,10} ExampleName/, count: 2
