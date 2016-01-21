@@ -4,9 +4,9 @@ language: ruby
 rvm:
  - "2.2.3"
 script:
-  - bundle exec rspec spec
   - bundle exec rake db:schema:load
   - bundle exec rake db:seed
+  - bundle exec rspec spec
 services:
   - postgresql
 before_script:
